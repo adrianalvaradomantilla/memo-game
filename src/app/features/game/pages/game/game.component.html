@@ -12,9 +12,7 @@
     </div>
     <div class="card-container">
         @for(card of cards; track card.id; let i = $index) {
-            @if(!card.matchedHide) {
-                <app-card [card]="card" (cardClicked)="onCardClickEvent($event)" [disabled]="disableElements"></app-card>
-            }
+            <app-card [card]="card" (cardClicked)="onCardClickEvent($event)" [disabled]="disableElements"></app-card>
         }
     </div>
 </div>
