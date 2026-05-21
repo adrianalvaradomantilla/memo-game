@@ -1,0 +1,3 @@
+<div class="item" [ngClass]="{ disableElement: disabled }" >
+    <img src="{{ card.selected ? card.img : card.imgBack }}" class="card-image" (click)="onCardClick(card)">
+</div>
