@@ -28,6 +28,7 @@ export class GameComponent implements OnInit, OnDestroy{
   public sound: boolean = true;
   public timerStatus:number = 30;
   public pairStatus:number = 0;
+  public movements:number = 0;
   private gameStatus = inject(StatusGameService)
   private musicService = inject(MusicService);
   private router = inject(Router);
@@ -89,6 +90,7 @@ export class GameComponent implements OnInit, OnDestroy{
     if(this.selectedTwoCards.length === 2){
       this.disableElements = true;
       this.validateContent();
+      this.movements++;
     }
   }
 

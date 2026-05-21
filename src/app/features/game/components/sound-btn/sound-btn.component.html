@@ -1,1 +1,3 @@
-<button (click)="muteSound()">Mute</button>
+<button (click)="muteSound()" class="mute">
+     <img [src]="'assets/images/sound--' + (sound ? 'off' : 'on') + '.svg'" alt="Icono de sonido" class="icono">
+</button>
