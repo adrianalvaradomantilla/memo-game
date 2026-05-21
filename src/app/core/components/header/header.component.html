@@ -1,1 +1,7 @@
-<p>HEADER Component</p>
+<div class="header-container">
+    @for(item of menuHeader; track item.label; let i = $index) {
+        <div class="header-item" (click)="navigateTo(item.route)">
+            <p>{{ item.label }}</p>
+        </div>
+    }
+</div>

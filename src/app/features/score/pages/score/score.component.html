@@ -1,1 +1,15 @@
-<p>score works!</p>
+<div class="score-container">
+  <h2>High Scores</h2>
+  <ul>
+
+    @if(globalUsers?.length === 0) {
+        <p>No scores yet. Play the game to set a new high score!</p>
+    }@else{
+       @for(user of globalUsers; track user.username; let i = $index) { 
+        <li>
+            {{ user.username }} - {{ user.score }}
+        </li>
+      } 
+    }   
+  </ul>
+</div>

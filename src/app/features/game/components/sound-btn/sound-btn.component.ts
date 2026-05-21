@@ -14,6 +14,5 @@ export class SoundBtnComponent {
   muteSound(): void {
     this.sound = !this.sound;
     this.musicService.toggleMute(this.sound);
-    console.log('MUTE SOUND', this.sound);
   }
 }

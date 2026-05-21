@@ -3,20 +3,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: orange;
-  height: 50vh;
   
-  .logo {
-    font-size: 60px;
-    color: white;
-    margin-bottom: 40px;
+  .main-logo {
+    margin-top: 40px;
+    width: 200px;
     animation: slideFromTop 1s ease-out forwards;
   }
 
   .bounce-animated {
     width: 100px;
     height: 50px;
-    background-color: white;
+    margin: 10px;
+    background-color: #ff0062;
+    color: #000;
     border: none;
     border-radius: 5px;
     cursor: pointer;

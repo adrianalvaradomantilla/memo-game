@@ -16,4 +16,9 @@ export class MainComponent {
   goToStartGame(): void {
     this.router.navigate(['/game']);
   }
+
+  goToNewUser(): void {
+    this.router.navigate(['/new-user']);
+  }
+
 }

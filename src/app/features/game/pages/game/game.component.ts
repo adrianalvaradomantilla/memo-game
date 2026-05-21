@@ -12,6 +12,8 @@ import { StatusGameService } from '../../../../core/services/status/status-game.
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MusicService } from '../../../../core/services/music/music.service';
+import { UserService } from '../../../../core/services/users/user.service';
+import { UserRegister } from '../../../../core/models/user-register';
 @Component({
   selector: 'app-game',
   standalone: true,
@@ -23,16 +25,21 @@ export class GameComponent implements OnInit, OnDestroy{
 
   public cards = cardsToRender;
   public selectedTwoCards: CardContent[] = [];
-  public matchedCards = 0;
-  public disableElements = false;
+  public matchedCards:number = 0;
+  public disableElements:boolean = false;
   public sound: boolean = true;
   public timerStatus:number = 30;
   public pairStatus:number = 0;
   public movements:number = 0;
+
+
   private gameStatus = inject(StatusGameService)
   private musicService = inject(MusicService);
   private router = inject(Router);
+  private userService = inject(UserService);
   private pairStatusSubs?: Subscription;
+
+  public activeUser?: UserRegister;
   constructor(private dialog: MatDialog){}
 
   ngOnInit(): void {
@@ -40,6 +47,9 @@ export class GameComponent implements OnInit, OnDestroy{
     this.catchGameStatus();
     this.startMusic();
     this.musicService.toggleMute(false);
+    this.userService.userActive.subscribe(user => {
+      this.activeUser = user;
+    });
   }
 
   ngOnDestroy(): void {
@@ -91,12 +101,13 @@ export class GameComponent implements OnInit, OnDestroy{
       this.disableElements = true;
       this.validateContent();
       this.movements++;
+      this.userService.modifyScoreActiveUser(this.movements);
     }
   }
 
   muteSound(): void {
     this.sound = !this.sound;
-    console.log('MUTE SOUND', this.sound);
+
   }
 
   validateContent():void {
@@ -110,8 +121,7 @@ export class GameComponent implements OnInit, OnDestroy{
   }
 
   catchGameStatus():void{
-    this.pairStatusSubs = this.gameStatus.PairStatus.subscribe(status => { 
-    console.log('PAIR', status)  
+    this.pairStatusSubs = this.gameStatus.PairStatus.subscribe(status => {   
     if(status === 4){
         this.redirectToResult();
     }

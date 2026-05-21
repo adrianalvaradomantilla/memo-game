@@ -17,7 +17,6 @@ export class CardComponent {
 
   onCardClick(card:CardContent): void {
     this.cardClicked.emit(this.card);
-    console.log('CARD CLICKED', this.card);
   }
 
   ngOnChanges(): void {

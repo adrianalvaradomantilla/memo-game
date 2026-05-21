@@ -1,0 +1,12 @@
+.header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(255, 0, 98);
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 200;
+}

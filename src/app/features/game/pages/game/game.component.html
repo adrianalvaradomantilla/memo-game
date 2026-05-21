@@ -1,4 +1,8 @@
 <div class="main-container">
+    <div class="welcome-content">
+        <h2>Welcome {{ activeUser?.username }}</h2>
+        <p>Try to find all the pairs before the time runs out!</p>
+    </div>
     <div class="btn-container">
         <div class="s-item">
             <app-timer (timeOver)="onTimeOver($event)"></app-timer>
