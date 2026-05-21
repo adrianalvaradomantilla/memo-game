@@ -1,3 +1,3 @@
-<div class="item" [ngClass]="{ disableElement: disabled }" >
+<div class="item" [ngClass]="{ disableElement: disabled || card.selected }" >
     <img src="{{ card.selected ? card.img : card.imgBack }}" class="card-image" (click)="onCardClick(card)">
 </div>

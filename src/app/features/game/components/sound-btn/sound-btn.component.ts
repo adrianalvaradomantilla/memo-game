@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { MusicService } from '../../../../core/services/music/music.service';
 
 @Component({
   selector: 'app-sound-btn',
@@ -8,10 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './sound-btn.component.scss'
 })
 export class SoundBtnComponent {
-  public sound: boolean = true;
-  
+  public sound: boolean = false;
+  private musicService = inject(MusicService);
   muteSound(): void {
     this.sound = !this.sound;
+    this.musicService.toggleMute(this.sound);
     console.log('MUTE SOUND', this.sound);
   }
 }

@@ -1,1 +1,20 @@
-<p>game works!</p>
+<div class="main-container">
+    <div class="btn-container">
+        <div class="s-item">
+            <app-timer (timeOver)="onTimeOver($event)"></app-timer>
+        </div>
+        <div class="s-item">
+            <p>Pairs {{ matchedCards }}</p>
+        </div>
+        <div class="s-item">
+            <app-sound-btn></app-sound-btn>
+        </div>
+    </div>
+    <div class="card-container">
+        @for(card of cards; track card.id; let i = $index) {
+            @if(!card.matchedHide) {
+                <app-card [card]="card" (cardClicked)="onCardClickEvent($event)" [disabled]="disableElements"></app-card>
+            }
+        }
+    </div>
+</div>
