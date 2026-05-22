@@ -3,10 +3,10 @@
         transform: translateY(0);
     }
     40% {
-        transform: translateY(-8px); // Altura del primer rebote
+        transform: translateY(-8px); 
     }
     70% {
-        transform: translateY(-3px); // Altura del segundo rebote (más pequeño)
+        transform: translateY(-3px); 
     }
 }
 

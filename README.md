@@ -1,27 +1,66 @@
-# MemoryGame
+# Memory Game App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+Proyecto desarrollado con Angular en su versión 17.3.0. El proyecto consiste en un juego que ofrece una experiencia de memoria con soporte de registro de usuario, esto para poder contar un puntuaje unico e incluir una experiencia competitiva extra, también puedes jugar sin registrar tu username, pero esto te dejaría fuera del puntuaje, sonidos, temporizador y resultados.
 
-## Development server
+## 📁 Estructura del proyecto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- `memory-game/`
+  - `angular.json` - configuración de Angular CLI.
+  - `package.json` - dependencias y scripts.
+  - `src/`
+    - `app/`
+      - `core/` - servicios globales, guardias, interceptores y componentes base como el header.
+      - `features/` - módulos funcionales por área del juego:
+        - `game/` - lógica del juego, cartas, temporizador y control de sonido.
+        - `general/` - Componentes de inicio  de la aplicación.
+        - `register/` - flujo de registro de usuario.
+        - `result/` - pantalla de resultados y navegación final.
+        - `score/` - puntajes y estadísticas.
+      - `shared/` - componentes reutilizables, constantes, directivas y utilidades.
+    - `assets/` - imágenes y sonidos utilizados en el juego.
 
-## Code scaffolding
+## 🧱 Arquitectura
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+El proyecto sigue una arquitectura basada en características con Angular:
 
-## Build
+- **Modular**: : cada área clave del juego (registro, juego, resultado y puntajes) está separada en su propia ruta y módulo lógico. Al utilizar componentes standalone, cada pieza funciona de manera independiente y encapsulada, importando estrictamente los recursos necesarios para su funcionamiento..
+- **Componentes reutilizables**: se utilizan componentes compartidos para botones, modales y elementos de UI comunes.
+- **Servicios**: la lógica de negocio y estado del juego se encapsula en servicios dentro de `core/services` y en los servicios específicos de cada característica.
+- **Guardias de ruta**: la navegación está protegida según el flujo del juego y el estado del usuario. Se implementaron Guards para restringir el acceso a las rutas del juego principal y de los resultados, evitando que los usuarios accedan de forma directa escribiendo la URL en el navegador sin cumplir el flujo solicitado.
+- **Rutas**: la configuración de rutas se define en archivos como `app.routes.ts` y los archivos de rutas de cada feature.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Cómo ejecutar el proyecto
 
-## Running unit tests
+1. Abre una terminal en la carpeta raíz del proyecto:
+   ```bash
+   cd "c:\Users\youruser\memory-game"
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Instala dependencias:
+   ```bash
+   npm install
+   ```
 
-## Running end-to-end tests
+3. Inicia la aplicación en modo de desarrollo:
+   ```bash
+   npm start
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4. Luego abre el navegador en:
+   ```bash
+   http://localhost:4200
+   ```
 
-## Further help
+## 🛠 Comandos útiles
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `npm install` - instala dependencias.
+- `npm start` - arranca el servidor de desarrollo.
+- `npm run build` - genera la versión de producción.
+
+## 💡 Características principales
+
+- Juego de memoria con cartas y lógica de aciertos/errores.
+- Registro de usuario antes de iniciar la partida.
+- Temporizador y control de sonido.
+- Pantalla de resultados y puntajes.
+- Interfaz modular y mantenible.
