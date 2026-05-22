@@ -1,66 +1,66 @@
 # Memory Game App
 
-Proyecto desarrollado con Angular en su versión 17.3.0. El proyecto consiste en un juego que ofrece una experiencia de memoria con soporte de registro de usuario, esto para poder contar un puntuaje unico e incluir una experiencia competitiva extra, también puedes jugar sin registrar tu username, pero esto te dejaría fuera del puntuaje, sonidos, temporizador y resultados.
+Project developed with Angular version 17.3.0. The project consists of a game that offers a memory-based experience with user registration support, allowing players to have a unique score and adding an extra competitive experience. You can also play without registering a username, but this will leave you out of the scoring system, sounds, timer, and results.
 
-## 📁 Estructura del proyecto
+## 📁 Project Structure
 
 - `memory-game/`
-  - `angular.json` - configuración de Angular CLI.
-  - `package.json` - dependencias y scripts.
+  - `angular.json` - Angular CLI configuration.
+  - `package.json` - dependencies and scripts.
   - `src/`
     - `app/`
-      - `core/` - servicios globales, guardias, interceptores y componentes base como el header.
-      - `features/` - módulos funcionales por área del juego:
-        - `game/` - lógica del juego, cartas, temporizador y control de sonido.
-        - `general/` - Componentes de inicio  de la aplicación.
-        - `register/` - flujo de registro de usuario.
-        - `result/` - pantalla de resultados y navegación final.
-        - `score/` - puntajes y estadísticas.
-      - `shared/` - componentes reutilizables, constantes, directivas y utilidades.
-    - `assets/` - imágenes y sonidos utilizados en el juego.
+      - `core/` - global services, guards, interceptors, and base components such as the header.
+      - `features/` - functional modules organized by game area:
+        - `game/` - game logic, cards, timer, and sound control.
+        - `general/` - application startup components.
+        - `register/` - user registration flow.
+        - `result/` - results screen and final navigation.
+        - `score/` - scores and statistics.
+      - `shared/` - reusable components, constants, directives, and utilities.
+    - `assets/` - images and sounds used in the game.
 
-## 🧱 Arquitectura
+## 🧱 Architecture
 
-El proyecto sigue una arquitectura basada en características con Angular:
+The project follows a feature-based architecture with Angular:
 
-- **Modular**: : cada área clave del juego (registro, juego, resultado y puntajes) está separada en su propia ruta y módulo lógico. Al utilizar componentes standalone, cada pieza funciona de manera independiente y encapsulada, importando estrictamente los recursos necesarios para su funcionamiento..
-- **Componentes reutilizables**: se utilizan componentes compartidos para botones, modales y elementos de UI comunes.
-- **Servicios**: la lógica de negocio y estado del juego se encapsula en servicios dentro de `core/services` y en los servicios específicos de cada característica.
-- **Guardias de ruta**: la navegación está protegida según el flujo del juego y el estado del usuario. Se implementaron Guards para restringir el acceso a las rutas del juego principal y de los resultados, evitando que los usuarios accedan de forma directa escribiendo la URL en el navegador sin cumplir el flujo solicitado.
-- **Rutas**: la configuración de rutas se define en archivos como `app.routes.ts` y los archivos de rutas de cada feature.
+- **Modular**: each key area of the game (registration, gameplay, results, and scores) is separated into its own route and logical module. By using standalone components, each piece works independently and in an encapsulated way, importing only the resources strictly required for its functionality.
+- **Reusable components**: shared components are used for buttons, modals, and common UI elements.
+- **Services**: business logic and game state are encapsulated in services inside core/services and in feature-specific services.
+- **Route guards**: navigation is protected according to the game flow and user state. Guards were implemented to restrict access to the main game and results routes, preventing users from directly accessing them by typing the URL in the browser without following the required flow.
+- **Routing**: route configuration is defined in files such as app.routes.ts and the routing files for each feature.
 
-## 🚀 Cómo ejecutar el proyecto
+## 🚀 How to Run the Project
 
-1. Abre una terminal en la carpeta raíz del proyecto:
+1. Open a terminal in the project root folder:
    ```bash
    cd "c:\Users\youruser\memory-game"
    ```
 
-2. Instala dependencias:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Inicia la aplicación en modo de desarrollo:
+3. Start the application in development mode:
    ```bash
    npm start
    ```
 
-4. Luego abre el navegador en:
+4. Then open the browser at:
    ```bash
    http://localhost:4200
    ```
 
-## 🛠 Comandos útiles
+## 🛠 Useful Commands
 
-- `npm install` - instala dependencias.
-- `npm start` - arranca el servidor de desarrollo.
-- `npm run build` - genera la versión de producción.
+- `npm install` - installs dependencies.
+- `npm start` - starts the development server.
+- `npm run build` - generates the production build.
 
 ## 💡 Características principales
 
-- Juego de memoria con cartas y lógica de aciertos/errores.
-- Registro de usuario antes de iniciar la partida.
-- Temporizador y control de sonido.
-- Pantalla de resultados y puntajes.
-- Interfaz modular y mantenible.
+- Memory game with cards and match/mismatch logic.
+- User registration before starting the game.
+- Timer and sound control.
+- Results and score screens.
+- Modular and maintainable interface.
