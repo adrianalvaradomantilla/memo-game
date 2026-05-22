@@ -1,3 +1,17 @@
-<div class="item" [ngClass]="{ disableElement: disabled || card.selected }" >
-    <img src="{{ card.selected ? card.img : card.imgBack }}" class="card-image" (click)="onCardClick(card)">
+<div
+  class="card"
+  [class.flipped]="card.selected"
+  [class.disableElement]="disabled || card.selected"
+  (click)="onCardClick(card)"
+>
+  <div class="card-inner">
+    <div class="card-front">
+      <img [src]="card.imgBack" class="card-image" />
+    </div>
+    
+    <div class="card-back">
+      <img [src]="card.img" class="card-image" />
+    </div>
+
+  </div>
 </div>
