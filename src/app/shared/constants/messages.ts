@@ -1,10 +1,12 @@
 export const modalMessages = {
     match: {
         title: 'Match Found',
-        text: `nice! it's a match!`
+        text: `Nice! it's a match!`,
+        image: '/assets/images/match.png'
     },
     noMatch: {
         title: 'No Match',
-        text: 'sorry, but this is not a match.'
+        text: 'Sorry, but this is not a match.',
+        image: '/assets/images/no-match.png'
     }
 }

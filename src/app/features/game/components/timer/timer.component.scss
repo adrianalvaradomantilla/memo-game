@@ -1,0 +1,17 @@
+.timer {
+    animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.55);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

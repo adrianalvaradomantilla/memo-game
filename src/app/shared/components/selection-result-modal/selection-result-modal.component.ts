@@ -16,5 +16,6 @@ export class SelectionResultModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+  console.log(this.data.content);
   }
 }

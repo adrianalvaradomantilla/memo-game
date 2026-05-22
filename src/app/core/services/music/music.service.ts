@@ -8,22 +8,22 @@ export class MusicService {
   
   private muted = false;
 
-  // MUSICA DE FONDO
+ 
   private backgroundMusic = new Audio(
     'assets/sounds/background.mp3'
   );
 
-  // TIMER 10s
+
   private countdownMusic = new Audio(
     'assets/sounds/ticking.mp3'
   );
 
-  // MATCH
+
   private correctSound = new Audio(
     'assets/sounds/correct.mp3'
   );
 
-  // WRONG
+ 
   private wrongSound = new Audio(
     'assets/sounds/incorrect.mp3'
   );

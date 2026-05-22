@@ -1,42 +1,182 @@
-.form-container{
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
 
     h2 {
-        margin-bottom: 20px;
+        margin-bottom: 24px;
+        font-size: 32px;
+        font-weight: 700;
+        color: #000;
+        text-align: center;
+    }
+
+    form {
+        width: 100%;
     }
 
     .form-group {
-        margin-bottom: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        label {
-            margin-bottom: 5px;
-        }
-
-        input {
-            padding: 8px;
-            width: 200px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+        width: 100%;
+        margin-bottom: 20px;
     }
 
     button {
-        padding: 10px 20px;
+        width: 100%;
+        padding: 14px 20px;
         background-color: #ff0062;
         color: #fff;
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
         cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.2s ease;
 
-        &:hover {
+        &:hover:not(:disabled) {
             background-color: #e60056;
+            transform: translateY(-2px);
+        }
+
+        &:active:not(:disabled) {
+            transform: scale(0.98);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    }
+}
+
+
+:host ::ng-deep .custom-input {
+    width: 100%;
+    .mdc-floating-label {
+        color: #000 !important;
+        font-weight: 500;
+    }
+
+    &.mat-focused .mdc-floating-label {
+        color: #ff0062 !important;
+    }
+
+    input.mat-mdc-input-element {
+        color: #000 !important;
+        font-size: 16px;
+    }
+
+    .mdc-text-field__input {
+        caret-color: #ff0062 !important;
+    }
+
+    .mat-mdc-text-field-wrapper {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        height: 58px;
+    }
+
+    .mat-mdc-form-field-flex {
+        height: 58px;
+        align-items: center;
+    }
+
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+        border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    &:hover .mdc-notched-outline__leading,
+    &:hover .mdc-notched-outline__notch,
+    &:hover .mdc-notched-outline__trailing {
+        border-color: rgba(255, 255, 255, 0.45) !important;
+    }
+
+    &.mat-focused .mdc-notched-outline__leading,
+    &.mat-focused .mdc-notched-outline__notch,
+    &.mat-focused .mdc-notched-outline__trailing {
+        border-color: #ff0062 !important;
+        border-width: 2px !important;
+    }
+
+    .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .form-container {
+        max-width: 400px;
+        padding: 28px;
+
+        h2 {
+            font-size: 28px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        max-width: 360px;
+        padding: 24px;
+        margin: 24px auto;
+
+        h2 {
+            font-size: 24px;
+        }
+    }
+
+    :host ::ng-deep .custom-input {
+        input.mat-mdc-input-element {
+            font-size: 15px;
+        }
+
+        .mat-mdc-text-field-wrapper {
+            height: 54px;
+        }
+
+        .mat-mdc-form-field-flex {
+            height: 54px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        width: 80%;
+        padding: 20px;
+        border-radius: 16px;
+
+        h2 {
+            font-size: 22px;
+        }
+
+        button {
+            font-size: 14px;
+            padding: 12px;
+        }
+    }
+
+    :host ::ng-deep .custom-input {
+        input.mat-mdc-input-element {
+            font-size: 14px;
+        }
+
+        .mat-mdc-text-field-wrapper {
+            height: 50px;
+            border-radius: 12px;
+        }
+
+        .mat-mdc-form-field-flex {
+            height: 50px;
         }
     }
 }

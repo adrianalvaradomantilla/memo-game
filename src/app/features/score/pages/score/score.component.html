@@ -1,19 +1,40 @@
 <div class="score-container">
-  <h2>High Scores</h2>
-  <ul>
+  <h2 class="score-title">High Scores</h2>
 
-    @if(globalUsers?.length === 0) {
-        <p>No scores yet. Play the game to set a new high score!</p>
-    }@else{
-       @for(user of globalUsers; track user.username; let i = $index) { 
-        <li>
-           <p>
+  <ul class="score-list">
+
+    @if(globalUsers.length === 0) {
+      <p class="empty-message">
+        No scores yet. Register and Play the game to set a new high score!
+      </p>
+    } @else {
+      <div>
+        <p>If you want to be the best, move less!</p>
+      </div>
+      @for(user of globalUsers; track user.username; let i = $index) {
+        <li class="score-item">
+
+          <div class="score-position">
+            #{{ i + 1 }}
+          </div>
+
+          <p class="score-text">
             @if(user.isActive){
-              <strong>(Your score)</strong>
+              <strong class="active-user">(Your score)</strong>
             }
-             {{ user.username }} - {{ user.score }}</p>
+
+            <span class="username">{{ user.username }}</span>
+          </p>
+          <p>
+            <span class="score-value">
+              {{ user.score }}
+            </span>
+          </p>
+
         </li>
-      } 
-    }   
+      }
+
+    }
+
   </ul>
 </div>

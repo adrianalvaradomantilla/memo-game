@@ -3,11 +3,11 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../../../core/services/users/user.service';
 import { Router } from '@angular/router';
 import { AppFlowService } from '../../../../core/services/app-flow/app-flow.service';
-
+import {MatInputModule} from '@angular/material/input';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatInputModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
