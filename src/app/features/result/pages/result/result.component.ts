@@ -1,6 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StatusGameService } from '../../../../core/services/status/status-game.service';
+import { AppFlowService } from '../../../../core/services/app-flow/app-flow.service';
 
 @Component({
   selector: 'app-result',
@@ -11,7 +12,7 @@ import { StatusGameService } from '../../../../core/services/status/status-game.
 })
 export class ResultComponent implements OnInit, OnDestroy {
   public message: string = 'Congratulations! You won the game!';
-
+  private appFlow = inject(AppFlowService);
   private router = inject(Router);
   private gameStatus = inject(StatusGameService);
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   playAgain(): void {
+    this.appFlow.allowGameAccess();
     this.router.navigate(['/game']);
     this.gameStatus.PairStatus.next(0);
   }

@@ -14,6 +14,8 @@ import { Subscription } from 'rxjs';
 import { MusicService } from '../../../../core/services/music/music.service';
 import { UserService } from '../../../../core/services/users/user.service';
 import { UserRegister } from '../../../../core/models/user-register';
+import { AppFlowService } from '../../../../core/services/app-flow/app-flow.service';
+
 @Component({
   selector: 'app-game',
   standalone: true,
@@ -38,7 +40,7 @@ export class GameComponent implements OnInit, OnDestroy{
   private router = inject(Router);
   private userService = inject(UserService);
   private pairStatusSubs?: Subscription;
-
+  private appFlow = inject(AppFlowService);
   public activeUser?: UserRegister;
   constructor(private dialog: MatDialog){}
 
@@ -152,6 +154,7 @@ export class GameComponent implements OnInit, OnDestroy{
 
 
   redirectToResult(): void {  
+    this.appFlow.allowResultAccess();
     this.router.navigate(['/result']);
   }
 }

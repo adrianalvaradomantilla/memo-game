@@ -7,7 +7,11 @@
     }@else{
        @for(user of globalUsers; track user.username; let i = $index) { 
         <li>
-            {{ user.username }} - {{ user.score }}
+           <p>
+            @if(user.isActive){
+              <strong>(Your score)</strong>
+            }
+             {{ user.username }} - {{ user.score }}</p>
         </li>
       } 
     }   
