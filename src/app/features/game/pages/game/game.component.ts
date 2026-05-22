@@ -138,7 +138,9 @@ export class GameComponent implements OnInit, OnDestroy{
         this.matchedCards++;
         this.gameStatus.PairStatus.next(this.matchedCards);
         this.musicService.playCorrect();
-        this.openModal(modalMessages.match);
+        if(this.matchedCards < 4){
+          this.openModal(modalMessages.match);
+        }
       }, 400);
   }
 
